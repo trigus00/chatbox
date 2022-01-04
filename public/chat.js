@@ -1,6 +1,7 @@
 //  make connection 
 let socket = io.connect('http://localhost:4000/')
 // query dom 
+let body = document.querySelector('body');
 let message = document.getElementById('message');
 let handle = document.getElementById('handle');
 let send = document.getElementById('send');
@@ -10,13 +11,13 @@ let feedback = document.getElementById('feedback')
 // events 
 send.addEventListener('click',function(){
     socket.emit('chat', {
-        message: message.value,
+        message: tinymce.get("message").getContent({ format: "text" }),
         handle: handle.value
     });
     message.value = "";
 });
 
-message.addEventListener('keypress', function(){
+body.addEventListener('keypress', function(){
     socket.emit('typing', handle.value);
 })
 

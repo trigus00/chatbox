@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <script src = "/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="https://cdn.tiny.cloud/1/vmjj0dfr4nkohq3tdgkk6mkom6lbi5enptbfpiqufnonrr5b/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: "#message",
+            plugins: "emoticons",
+            toolbar: "emoticons",
+            toolbar_location: "bottom",
+            menubar: false
+        });
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <title>WebSockets 101</title>
 </head>
+
 <body>
     <!-- <h1>You see me !</h1> -->
     <div id="mario-chat">
         <div id="chat-window">
-            <div id ="output"></div>
+            <div id="output"></div>
             <div id="feedback"></div>
         </div>
-        <input id="handle" type="text" placeholder="Handle"/>
-        <input id="message" type="text" placeholder="Message"/>
-        <button id= 'send'> Send </button>
+        <input id="handle" type="text" placeholder="Handle" />
+        <input id="message" type="text" placeholder="Message" class="emojiable-option" />
+        <button id='send'> Send </button>
     </div>
-    
+
 </body>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="chat.js"> </script>
+
 </html>
